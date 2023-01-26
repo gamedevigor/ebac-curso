@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidbody2d;
     public Vector2 friction = new Vector2(-.1f, 0);
     public float speed;
+    public float speedRun;
     public float jumpForce = 5;
+
+    private float _currentSpeed;
 
     private void Update()
     {
@@ -17,14 +20,20 @@ public class Player : MonoBehaviour
     }
     private void HandleMovement()
     {
+        if (Input.GetKey(KeyCode.LeftControl)) 
+            _currentSpeed = speedRun;
+
+        else
+            _currentSpeed = speed;
+
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            rigidbody2d.velocity = new Vector2(-speed, rigidbody2d.velocity.y);
+            rigidbody2d.velocity = new Vector2(-_currentSpeed, rigidbody2d.velocity.y);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rigidbody2d.velocity = new Vector2(speed, rigidbody2d.velocity.y);
+            rigidbody2d.velocity = new Vector2(_currentSpeed, rigidbody2d.velocity.y);
         }
 
         if (rigidbody2d.velocity.x > 0)
@@ -32,7 +41,7 @@ public class Player : MonoBehaviour
             rigidbody2d.velocity += friction;
         }
 
-        if (rigidbody2d.velocity.x < 0)
+        else if (rigidbody2d.velocity.x < 0)
         {
             rigidbody2d.velocity -= friction;
         }
