@@ -14,13 +14,13 @@ public class GameManager : Singleton<GameManager>
 
     [Header("References")]
     public Transform StartPoint;
-
-    private GameObject _currentPlayer;
-
+   
     [Header("Animation")]
     public float duration = .2f;
     public float delay = .05f;
     public Ease ease = Ease.OutBack;
+
+    private GameObject _currentPlayer;
 
     private void Start()
     {
