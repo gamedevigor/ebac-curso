@@ -342,7 +342,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 813362202}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 681e558b84650504790222286ce5a581, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2d: {fileID: 1021649463}
-  velocity: {x: 20, y: 0}
+  friction: {x: -0.1, y: 0}
   speed: 5
+  speedRun: 10
   jumpForce: 8
