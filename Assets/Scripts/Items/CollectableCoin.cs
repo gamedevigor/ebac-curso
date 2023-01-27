@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectableCoin : CollectableBase
 {
+    public string collectItem = "CollectCoin";
+
     protected override void OnCollect()
     {
         base.OnCollect();

@@ -9,7 +9,6 @@ public class ItemsManager : MonoBehaviour
 
     public int coins;
 
-
     private void Awake()
     {
         if (Instance == null)
