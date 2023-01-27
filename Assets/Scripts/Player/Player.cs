@@ -17,9 +17,12 @@ public class Player : MonoBehaviour
     [Header("Animation Setup")]
     public float jumpScaleY = 1.3f;
     public float jumpScaleX = .5f;
+    public float fallScaleY = 0.9f;
+    public float fallScaleX = 1.2f;
     public float animationDuration = .3f;
     public Ease ease = Ease.OutBack;
 
+    private bool falling;
     private float _currentSpeed;
 
     private void Update()
@@ -73,5 +76,21 @@ public class Player : MonoBehaviour
     {
         rigidbody2d.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
         rigidbody2d.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        falling = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (falling == false)
+        {
+         
+        }
+
+        else if (falling == true)
+        {
+            rigidbody2d.transform.DOScaleY(-fallScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+            rigidbody2d.transform.DOScaleX(-fallScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+            falling = false;
+        }
     }
 }
