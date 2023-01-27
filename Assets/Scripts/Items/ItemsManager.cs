@@ -4,9 +4,26 @@ using UnityEngine;
 
 public class ItemsManager : MonoBehaviour
 {
+
+    public static ItemsManager Instance;
+
     public int coins;
 
+
     private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance= this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
     {
         Reset();
     }

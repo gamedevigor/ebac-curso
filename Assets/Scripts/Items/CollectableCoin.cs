@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableCoin : MonoBehaviour
+public class CollectableCoin : CollectableBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnCollect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.OnCollect();
+        ItemsManager.Instance.AddCoins();
     }
 }
