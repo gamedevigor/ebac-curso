@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using JetBrains.Annotations;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,15 @@ public class Player : MonoBehaviour
     public float animationDuration = .3f;
     public Ease ease = Ease.OutBack;
 
+    [Header("Animator")]
+    public string boolRun = "Run";
+    public string boolJump = "Jump";
+    public Animator animator;
+    public float swipeDuration = .2f;
+    public float runningAnimationSpeed = 1.5f;
+    public float regularAnimationSpeed = 1;
+    
+
     private bool falling;
     private float _currentSpeed;
 
@@ -32,20 +42,46 @@ public class Player : MonoBehaviour
     }
     private void HandleMovement()
     {
-        if (Input.GetKey(KeyCode.LeftControl)) 
+        if (Input.GetKey(KeyCode.LeftControl))
+        { 
             _currentSpeed = speedRun;
+            animator.speed = runningAnimationSpeed;
+        }
 
         else
+        {
             _currentSpeed = speed;
+            animator.speed = regularAnimationSpeed;
+        }
 
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             rigidbody2d.velocity = new Vector2(-_currentSpeed, rigidbody2d.velocity.y);
+
+            if (rigidbody2d.transform.localScale.x != -1)
+            {
+                rigidbody2d.transform.DOScaleX(-1, swipeDuration);
+            }
+
+            animator.SetBool(boolRun, true);
+
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody2d.velocity = new Vector2(_currentSpeed, rigidbody2d.velocity.y);
+            
+            if (rigidbody2d.transform.localScale.x != 1)
+            {
+                rigidbody2d.transform.DOScaleX(1, swipeDuration);
+            }
+
+            animator.SetBool(boolRun, true);
+        }
+
+        else
+        {
+            animator.SetBool(boolRun, false);
         }
 
         if (rigidbody2d.velocity.x > 0)
@@ -66,9 +102,16 @@ public class Player : MonoBehaviour
             rigidbody2d.velocity = Vector2.up * jumpForce;
             rigidbody2d.transform.localScale = Vector2.one;
 
+            animator.SetBool(boolJump, true);
+
             DOTween.Kill(rigidbody2d.transform);
 
             HandleJumpScale();
+        }
+
+        else
+        {
+            animator.SetBool(boolJump, false);
         }
     }
 
