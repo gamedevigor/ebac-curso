@@ -912,7 +912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 76, y: -67.336}
+  m_AnchoredPosition: {x: 126.8, y: -67.336}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305823741
@@ -1034,11 +1034,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 10, y: 12, z: 0}
+  m_TrackedObjectOffset: {x: 8, y: 8, z: 0}
   m_LookaheadTime: 0
-  m_LookaheadSmoothing: 5
-  m_LookaheadIgnoreY: 1
-  m_XDamping: 2.9
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
@@ -1046,13 +1046,13 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0.34
+  m_DeadZoneHeight: 0.32
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: 0.00000049670535
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -1467,7 +1467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561991139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.137842, y: 0.34976196, z: -10}
+  m_LocalPosition: {x: -8.137842, y: -3.650237, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1623,8 +1623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224.07812, y: -67.336}
-  m_SizeDelta: {x: 448.154, y: 134.672}
+  m_AnchoredPosition: {x: 239.911, y: -67.336}
+  m_SizeDelta: {x: 479.821, y: 134.672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &592087864 stripped
 Transform:
@@ -2203,7 +2203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765504346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.137842, y: 0.34976196, z: -10}
+  m_LocalPosition: {x: -8.137842, y: -3.650237, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 322877780}
@@ -2543,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0.000022888}
+  m_AnchoredPosition: {x: 89.887, y: 0.000022888}
   m_SizeDelta: {x: 268.379, y: 68.141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026404634
@@ -3172,6 +3172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360225469}
+  - component: {fileID: 1360225470}
   m_Layer: 0
   m_Name: Coins
   m_TagString: Untagged
@@ -3198,6 +3199,17 @@ Transform:
   m_Father: {fileID: 1361820683}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1360225470
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360225468}
+  m_Enabled: 1
+  m_SortingLayerID: 1066524803
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &1361820682
 GameObject:
   m_ObjectHideFlags: 0
