@@ -533,6 +533,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8007466312498025151, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 294204005}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &647704251 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 294204005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765504346
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +927,12 @@ MonoBehaviour:
   fallScaleX: -1.2
   animationDuration: 0.2
   ease: 31
+  boolRun: Run
+  boolJump: Jump
+  animator: {fileID: 647704251}
+  swipeDuration: 0.2
+  runningAnimationSpeed: 1.5
+  regularAnimationSpeed: 1
 --- !u!1 &1282288078
 GameObject:
   m_ObjectHideFlags: 0
