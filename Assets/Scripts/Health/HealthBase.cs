@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,18 @@ public class HealthBase : MonoBehaviour
     public bool destroyOnKill = false;
     public float delayToDestroy = .2f;
 
+    public FlashColor flashColor;
     private int _currentLife;
     private bool _isAlive = true;
 
     private void Awake()
     {
         Init();
+        
+        if (flashColor == null)
+        {
+            flashColor.GetComponent<FlashColor>();
+        }
     }
 
     private void Init()
@@ -32,6 +39,11 @@ public class HealthBase : MonoBehaviour
         if (_currentLife <= 0)
         {
             Kill();
+        }
+
+        if (flashColor != null) 
+        {
+            flashColor.Flash();
         }
 
     }
