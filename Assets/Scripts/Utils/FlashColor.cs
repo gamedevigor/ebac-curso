@@ -23,16 +23,15 @@ public class FlashColor : MonoBehaviour
 
     public void Flash()
     {
-
-        foreach (var s in renderers)
-        {
-            _currentTween = s.DOColor(color, duration);
-        }
-        
         if (_currentTween != null)
         {
             _currentTween.Kill();
             renderers.ForEach(i => i.color = Color.white);
+        }
+
+        foreach (var s in renderers)
+        {
+            _currentTween = s.DOColor(color, duration);
         }
     }
 }
