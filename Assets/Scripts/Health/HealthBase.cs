@@ -8,7 +8,7 @@ public class HealthBase : MonoBehaviour
     [Header("Life Setup")]
     public int startLife = 10;
     public bool destroyOnKill = false;
-    public float delayToDestroy = 0f;
+    public float delayToDestroy = .2f;
 
     private int _currentLife;
     private bool _isAlive = true;
@@ -29,7 +29,7 @@ public class HealthBase : MonoBehaviour
 
         _currentLife -= damage;
 
-        if (_currentLife<= 0)
+        if (_currentLife <= 0)
         {
             Kill();
         }
