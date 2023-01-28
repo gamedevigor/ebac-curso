@@ -2738,7 +2738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 10
   destroyOnKill: 1
-  delayToDestroy: 0.5
+  delayToDestroy: 0.4
   flashColor: {fileID: 2001093379}
 --- !u!1 &1026404632
 GameObject:

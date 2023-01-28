@@ -9,7 +9,7 @@ public class HealthBase : MonoBehaviour
     [Header("Life Setup")]
     public int startLife = 10;
     public bool destroyOnKill = false;
-    public float delayToDestroy = .5f;
+    public float delayToDestroy = .4f;
 
     public FlashColor flashColor;
     private int _currentLife;
