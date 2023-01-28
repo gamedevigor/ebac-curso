@@ -10,11 +10,6 @@ public class HealthBase : MonoBehaviour
     public bool destroyOnKill = false;
     public float delayToDestroy = 0f;
 
-    [Header("Damage Animation")]
-    public float damageIndicationScale = 0.4f;
-    public float animationDuration = .5f;
-    public Ease ease = Ease.OutBack;
-
     private int _currentLife;
     private bool _isAlive = true;
 
@@ -33,8 +28,6 @@ public class HealthBase : MonoBehaviour
         if (_isAlive == false) return;
 
         _currentLife -= damage;
-
-        gameObject.transform.DOScaleY(-damageIndicationScale, animationDuration).SetLoops(3, LoopType.Yoyo).SetEase(ease);
 
         if (_currentLife<= 0)
         {
