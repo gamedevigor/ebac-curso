@@ -2716,7 +2716,7 @@ MonoBehaviour:
   jumpScaleX: 0.8
   fallScaleY: -0.8
   fallScaleX: -1.2
-  animationDuration: 0.2
+  animationDuration: 0.5
   ease: 31
   boolRun: Run
   boolJump: Jump
