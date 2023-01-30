@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rigidbody2d;
+    public HealthBase healthBase;
     public Vector2 friction = new Vector2(-.1f, 0);
 
     [Header("Speed Setup")]
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     [Header("Animator")]
     public string boolRun = "Run";
     public string boolJump = "Jump";
+    public string triggerDeath = "Death";
     public Animator animator;
     public float swipeDuration = .2f;
     public float runningAnimationSpeed = 1.5f;
@@ -34,6 +36,18 @@ public class Player : MonoBehaviour
 
     private bool falling;
     private float _currentSpeed;
+
+
+    private void Awake()
+    {
+        healthBase.OnKill += OnPlayerKill;
+    }
+
+    private void OnPlayerKill()
+    {
+        if (healthBase != null) healthBase.OnKill -= OnPlayerKill;
+        animator.SetTrigger(triggerDeath);
+    }
 
     private void Update()
     {
@@ -135,5 +149,10 @@ public class Player : MonoBehaviour
             rigidbody2d.transform.DOScaleX(-fallScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
             falling = false;
         }
+    }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
     }
 }

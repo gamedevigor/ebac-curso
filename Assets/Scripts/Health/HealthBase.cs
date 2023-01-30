@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using System.Collections;
@@ -14,6 +15,8 @@ public class HealthBase : MonoBehaviour
     public FlashColor flashColor;
     private int _currentLife;
     private bool _isAlive = true;
+
+    public Action OnKill;
 
     private void Awake()
     {
@@ -55,5 +58,7 @@ public class HealthBase : MonoBehaviour
         {
             Destroy(gameObject, delayToDestroy);
         }
+
+        OnKill?.Invoke();
     }
 }

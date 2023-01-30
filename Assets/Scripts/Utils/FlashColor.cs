@@ -8,7 +8,7 @@ public class FlashColor : MonoBehaviour
 {
     public List<SpriteRenderer> renderers;
     public Color color = Color.red;
-    public float duration = .3f;
+    public float duration = .2f;
 
     private Tween _currentTween;
  
@@ -31,7 +31,7 @@ public class FlashColor : MonoBehaviour
 
         foreach (var s in renderers)
         {
-            _currentTween = s.DOColor(color, duration);
+            _currentTween = s.DOColor(color, duration).SetLoops(3, LoopType.Yoyo);
         }
     }
 }
