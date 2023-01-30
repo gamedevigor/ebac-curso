@@ -48,4 +48,9 @@ public class EnemyBase : MonoBehaviour
     {
         healthBase.Damage(amount);
     }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
 }

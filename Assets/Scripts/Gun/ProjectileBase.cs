@@ -26,7 +26,6 @@ public class ProjectileBase : MonoBehaviour
         if (enemy != null) 
         {
             enemy.Damage(damageAmount);
-            Destroy(gameObject);
         }
     }
 }

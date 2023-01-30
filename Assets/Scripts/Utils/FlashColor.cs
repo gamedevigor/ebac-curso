@@ -31,7 +31,7 @@ public class FlashColor : MonoBehaviour
 
         foreach (var s in renderers)
         {
-            _currentTween = s.DOColor(color, duration).SetLoops(3, LoopType.Yoyo);
+            _currentTween = s.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

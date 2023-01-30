@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5e1872eaa176942a422f6f2ca83e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLife: 5
+  startLife: 10
   destroyOnKill: 0
   delayToDestroy: 0.4
   flashColor: {fileID: 723860833}
@@ -1700,11 +1700,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 3.9
+  far clip plane: 999.4
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 13.7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2343,6 +2343,19 @@ MonoBehaviour:
   - {fileID: 534637211}
   color: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
   duration: 0.1
+--- !u!114 &723860835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723860832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784b0094085bc5e4a9aca5c4e39c27ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBase: {fileID: 137482390}
 --- !u!212 &724072946 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9145059997782691051, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
@@ -2566,9 +2579,9 @@ MonoBehaviour:
   m_Follow: {fileID: 1021649465}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 15
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
+    OrthographicSize: 13.7
+    NearClipPlane: 3.9
+    FarClipPlane: 999.4
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
