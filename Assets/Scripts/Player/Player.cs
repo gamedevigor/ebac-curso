@@ -18,9 +18,7 @@ public class Player : MonoBehaviour
 
     [Header("Animation Setup")]
     public float jumpScaleY = 1.3f;
-    public float jumpScaleX = .5f;
     public float fallScaleY = 0.9f;
-    public float fallScaleX = 1.2f;
     public float animationDuration = .3f;
     public Ease ease = Ease.OutBack;
 
@@ -114,7 +112,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody2d.velocity = Vector2.up * jumpForce;
-            rigidbody2d.transform.localScale = Vector2.one;
+            
 
             animator.SetBool(boolJump, true);
 
@@ -132,7 +130,6 @@ public class Player : MonoBehaviour
     private void HandleJumpScale()
     {
         rigidbody2d.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        rigidbody2d.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
         falling = true;
     }
 
@@ -146,7 +143,6 @@ public class Player : MonoBehaviour
         else if (falling == true)
         {
             rigidbody2d.transform.DOScaleY(-fallScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-            rigidbody2d.transform.DOScaleX(-fallScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
             falling = false;
         }
     }
