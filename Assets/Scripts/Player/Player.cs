@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         healthBase.OnKill += OnPlayerKill;
 
         _currentPlayer = Instantiate(soPlayerSetup.player, transform);
+        _currentPlayer.GetComponentInChildren<PlayerDestroyHelper>().player = this;
     }
 
     private void OnPlayerKill()
