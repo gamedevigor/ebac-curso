@@ -7,7 +7,7 @@ using EBAC.Core.Singleton;
 public class ItemsManager : Singleton<ItemsManager>
 {
 
-    public int coins;
+    public SOInt coins;
     public TextMeshProUGUI uiTextCoins;
 
     private void Start()
@@ -17,18 +17,12 @@ public class ItemsManager : Singleton<ItemsManager>
 
     private void Reset()
     {
-        coins = 0;
-        UpdateUI();
+        coins.value = 0;
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins += amount;
-        UpdateUI();
+        coins.value += amount;
     }
 
-    private void UpdateUI()
-    {
-        uiTextCoins.text = coins.ToString();
-    }
 }
