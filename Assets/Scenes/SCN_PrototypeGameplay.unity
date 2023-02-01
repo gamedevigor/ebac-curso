@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda0f20d8407ce9478a6d9309699df31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 0}
+  coins: {fileID: 11400000, guid: 7c655105277147c4cb4a317c82bd709f, type: 2}
   uiTextCoins: {fileID: 1026404634}
 --- !u!1 &51187736
 GameObject:
@@ -2970,10 +2970,10 @@ MonoBehaviour:
   speed: 10
   speedRun: 18
   jumpForce: 11
-  jumpScaleY: 1.2
-  fallScaleY: -0.8
-  animationDuration: 0.5
   ease: 31
+  soJumpScaleY: {fileID: 11400000, guid: c6afb7003f8ac4c4388b4f96ea68faa3, type: 2}
+  soFallScale: {fileID: 11400000, guid: 74c6c88e39474f8408482893852a1b35, type: 2}
+  soAnimationDuration: {fileID: 11400000, guid: 1b5681199cd881c449d98326a9e73c7e, type: 2}
   boolRun: Run
   boolJump: Jump
   triggerDeath: Death

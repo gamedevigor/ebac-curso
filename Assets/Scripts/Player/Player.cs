@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
     public float jumpForce = 5;
 
     [Header("Animation Setup")]
-    public float jumpScaleY = 1.3f;
-    public float fallScaleY = 0.9f;
-    public float animationDuration = .3f;
     public Ease ease = Ease.OutBack;
+    public SOFloat soJumpScaleY;
+    public SOFloat soFallScale;
+    public SOFloat soAnimationDuration;
 
     [Header("Animator")]
     public string boolRun = "Run";
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
 
     private void HandleJumpScale()
     {
-        rigidbody2d.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        rigidbody2d.transform.DOScaleY(soJumpScaleY.value, soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
         falling = true;
     }
 
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
 
         else if (falling == true)
         {
-            rigidbody2d.transform.DOScaleY(-fallScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+            rigidbody2d.transform.DOScaleY(-soFallScale.value, soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
             falling = false;
         }
     }
