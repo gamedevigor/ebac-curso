@@ -1728,7 +1728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561991139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.137841, y: -0.8802366, z: -10}
+  m_LocalPosition: {x: -8.137842, y: -0.8802366, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2600,7 +2600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765504346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.137841, y: -0.8802366, z: -10}
+  m_LocalPosition: {x: -8.137842, y: -0.8802366, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 322877780}
@@ -2966,21 +2966,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2d: {fileID: 1021649463}
   healthBase: {fileID: 1021649468}
-  friction: {x: -0.5, y: 0}
-  speed: 10
-  speedRun: 18
-  jumpForce: 11
-  ease: 31
-  soJumpScaleY: {fileID: 11400000, guid: c6afb7003f8ac4c4388b4f96ea68faa3, type: 2}
-  soFallScale: {fileID: 11400000, guid: 74c6c88e39474f8408482893852a1b35, type: 2}
-  soAnimationDuration: {fileID: 11400000, guid: 1b5681199cd881c449d98326a9e73c7e, type: 2}
-  boolRun: Run
-  boolJump: Jump
-  triggerDeath: Death
   animator: {fileID: 647704251}
-  swipeDuration: 0.2
-  runningAnimationSpeed: 1.5
-  regularAnimationSpeed: 1
+  soPlayerSetup: {fileID: 11400000, guid: c967f6bebb3ea534f87cc07ae7fdf012, type: 2}
 --- !u!114 &1021649468
 MonoBehaviour:
   m_ObjectHideFlags: 0
