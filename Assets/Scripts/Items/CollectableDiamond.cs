@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableCoin : CollectableBase
+public class CollectableDiamond : CollectableBase
 {
-    public string collectItem = "CollectCoin";
+    public string collectItem = "CollectDiamond";
 
     protected override void OnCollect()
     {
         base.OnCollect();
-        ItemsManager.Instance.AddItemCoin();
+        ItemsManager.Instance.AddItemDiamond();
     }
 }

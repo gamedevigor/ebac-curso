@@ -7,8 +7,10 @@ using EBAC.Core.Singleton;
 public class ItemsManager : Singleton<ItemsManager>
 {
 
-    public SOInt coins;
-    public TextMeshProUGUI uiTextCoins;
+    public SOInt coin;
+    public SOInt diamond;
+    public TextMeshProUGUI uiTextCoin;
+    public TextMeshProUGUI uiTextDiamond;
 
     private void Start()
     {
@@ -17,12 +19,17 @@ public class ItemsManager : Singleton<ItemsManager>
 
     private void Reset()
     {
-        coins.value = 0;
+        coin.value = 0;
+        diamond.value = 0;
     }
 
-    public void AddCoins(int amount = 1)
+    public void AddItemCoin(int amount = 1)
     {
-        coins.value += amount;
+        coin.value += amount;
     }
 
+    public void AddItemDiamond(int amount = 1)
+    {
+        diamond.value += amount;
+    }
 }

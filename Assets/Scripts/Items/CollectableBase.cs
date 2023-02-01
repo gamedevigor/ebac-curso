@@ -8,7 +8,7 @@ public class CollectableBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(compareTag))
+        if (collision.CompareTag(compareTag)) 
         {
             Collect();
         }
