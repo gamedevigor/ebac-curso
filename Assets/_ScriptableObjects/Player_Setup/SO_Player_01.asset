@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SO_Player_01
   m_EditorClassIdentifier: 
   friction: {x: -0.3, y: 0}
+  player: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  playerName: {fileID: 11400000, guid: 44d81258c6aa714458d7c8c2626188a9, type: 2}
   speed: 10
   speedRun: 15
   jumpForce: 12
@@ -26,4 +28,3 @@ MonoBehaviour:
   swipeDuration: 0.2
   runningAnimationSpeed: 1.5
   regularAnimationSpeed: 1
-  player: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
