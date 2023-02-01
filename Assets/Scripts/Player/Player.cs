@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     [Header("Setup")]
     public SOPlayerSetup soPlayerSetup;
-    public Animator animator;
+    public Animator _currentPlayer;
 
     private bool falling;
     private float _currentSpeed;
@@ -21,12 +21,14 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         healthBase.OnKill += OnPlayerKill;
+
+        _currentPlayer = Instantiate(soPlayerSetup.player, transform);
     }
 
     private void OnPlayerKill()
     {
         if (healthBase != null) healthBase.OnKill -= OnPlayerKill;
-        animator.SetTrigger(soPlayerSetup.triggerDeath);
+        _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -39,13 +41,13 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         { 
             _currentSpeed = soPlayerSetup.speedRun;
-            animator.speed = soPlayerSetup.runningAnimationSpeed;
+            _currentPlayer.speed = soPlayerSetup.runningAnimationSpeed;
         }
 
         else
         {
             _currentSpeed = soPlayerSetup.speed;
-            animator.speed = soPlayerSetup.regularAnimationSpeed;
+            _currentPlayer.speed = soPlayerSetup.regularAnimationSpeed;
         }
 
         if(Input.GetKey(KeyCode.LeftArrow))
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
                 rigidbody2d.transform.DOScaleX(-1, soPlayerSetup.swipeDuration);
             }
 
-            animator.SetBool(soPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
 
         }
 
@@ -70,12 +72,12 @@ public class Player : MonoBehaviour
                 rigidbody2d.transform.DOScaleX(1, soPlayerSetup.swipeDuration);
             }
 
-            animator.SetBool(soPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
 
         else
         {
-            animator.SetBool(soPlayerSetup.boolRun, false);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, false);
         }
 
         if (rigidbody2d.velocity.x > 0)
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
             rigidbody2d.velocity = Vector2.up * soPlayerSetup.jumpForce;
             
 
-            animator.SetBool(soPlayerSetup.boolJump, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolJump, true);
 
             DOTween.Kill(rigidbody2d.transform);
 
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour
 
         else
         {
-            animator.SetBool(soPlayerSetup.boolJump, false);
+            _currentPlayer.SetBool(soPlayerSetup.boolJump, false);
         }
     }
 
