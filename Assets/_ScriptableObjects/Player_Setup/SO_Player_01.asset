@@ -17,7 +17,7 @@ MonoBehaviour:
   playerName: {fileID: 11400000, guid: 44d81258c6aa714458d7c8c2626188a9, type: 2}
   speed: 10
   speedRun: 15
-  jumpForce: 12
+  jumpForce: 20
   ease: 27
   soJumpScaleY: {fileID: 11400000, guid: c6afb7003f8ac4c4388b4f96ea68faa3, type: 2}
   soFallScale: {fileID: 11400000, guid: 74c6c88e39474f8408482893852a1b35, type: 2}

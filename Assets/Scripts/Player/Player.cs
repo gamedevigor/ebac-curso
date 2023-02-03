@@ -14,9 +14,13 @@ public class Player : MonoBehaviour
     public SOPlayerSetup soPlayerSetup;
     public Animator _currentPlayer;
 
-    private bool falling;
     private float _currentSpeed;
 
+    [Header("Jump Collision Check")]
+    public Collider2D collider2d;
+    public float distToGround;
+    public float spaceToGround = .1f;
+    public ParticleSystem jumpVFX;
 
     private void Awake()
     {
@@ -24,7 +28,14 @@ public class Player : MonoBehaviour
 
         _currentPlayer = Instantiate(soPlayerSetup.player, transform);
         _currentPlayer.GetComponentInChildren<PlayerDestroyHelper>().player = this;
+        _currentPlayer.GetComponentInChildren<GunBase>().playerSideReference = transform;
+
+        if (collider2d != null )
+        {
+            distToGround = collider2d.bounds.extents.y;
+        }
     }
+
 
     private void OnPlayerKill()
     {
@@ -36,7 +47,9 @@ public class Player : MonoBehaviour
     {
         HandleJump();
         HandleMovement();
+        isGrounded();
     }
+
     private void HandleMovement()
     {
         if (Input.GetKey(KeyCode.LeftControl))
@@ -61,7 +74,6 @@ public class Player : MonoBehaviour
             }
 
             _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
-
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
@@ -74,6 +86,7 @@ public class Player : MonoBehaviour
             }
 
             _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
+
         }
 
         else
@@ -94,7 +107,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             rigidbody2d.velocity = Vector2.up * soPlayerSetup.jumpForce;
             
@@ -102,6 +115,8 @@ public class Player : MonoBehaviour
             _currentPlayer.SetBool(soPlayerSetup.boolJump, true);
 
             DOTween.Kill(rigidbody2d.transform);
+
+            playJumpVFX();
 
             HandleJumpScale();
         }
@@ -114,23 +129,20 @@ public class Player : MonoBehaviour
 
     private void HandleJumpScale()
     {
+        if (transform != null)
         rigidbody2d.transform.DOScaleY(soPlayerSetup.soJumpScaleY.value, soPlayerSetup.soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(soPlayerSetup.ease);
-        falling = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private bool isGrounded()
     {
-        if (falling == false)
-        {
-         
-        }
-
-        else if (falling == true)
-        {
-            rigidbody2d.transform.DOScaleY(-soPlayerSetup.soFallScale.value, soPlayerSetup.soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(soPlayerSetup.ease);
-            falling = false;
-        }
+        return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround);
     }
+
+    private void playJumpVFX()
+    {
+        jumpVFX.Play();
+    }
+
 
     public void DestroyMe()
     {
