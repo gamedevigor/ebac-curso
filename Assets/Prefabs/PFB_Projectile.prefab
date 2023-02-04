@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3244481780613044283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3520885, y: -4.543659, z: -0.42068195}
+  m_LocalPosition: {x: -5.3520885, y: -4.543659, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3244481781372212443}
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 15, y: 0, z: 0}
+  timeToDestroy: 2
+  side: 1
+  damageAmount: 1
 --- !u!58 &3244481780613044285
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     public Collider2D collider2d;
     public float distToGround;
     public float spaceToGround = .1f;
-    public ParticleSystem jumpVFX;
 
     private void Awake()
     {
@@ -86,7 +85,6 @@ public class Player : MonoBehaviour
             }
 
             _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
-
         }
 
         else
@@ -140,9 +138,8 @@ public class Player : MonoBehaviour
 
     private void playJumpVFX()
     {
-        jumpVFX.Play();
+        VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.JUMP, transform.position);
     }
-
 
     public void DestroyMe()
     {
